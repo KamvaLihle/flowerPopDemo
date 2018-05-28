@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-cookies.js"></script>
+    <script src="../scripts/LoginApp.js"></script>
+    <script src="../scripts/LoginService.js"></script>
+    <script src="../scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/style.css" rel="stylesheet" />
+    <link href="../Content/fontawesome-all.css" rel="stylesheet" />
+    <script src="../scripts/bootstrap.js"></script>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body style="padding-top:50px" ng-app="LoginApp" ng-controller="SupplierDetailsController">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">FlowerPop</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" ng-if="suppliername">
+                <ul class="nav navbar-nav"></ul>
+                <form class="navbar-form navbar-left" action="">
+                    <div class="input-group">
+                        <input id="search" type="text" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn search-button" type="submit">
+                                <i class="fas fa-search icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="Login.html" data-toggle="dropdown">
+                            My Account
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="EditDriverInfo.html"><i class="fas fa-user"></i> Account Info</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Hi! {{suppliername}}</a></li>
+                    <li><a ng-click="logOut()"><span class="fas fa-sign-out-alt"></span>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h2 class="text-center">Inventory</h2>
+    <div class="container" ng-controller="SupplierInventoryController">
+        <table class="table table-hover table-responsive table-bordered">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Quantity</th>
+                <th>Threshold Quantity</th>
+                <th>Batch Quantity</th>
+                <th>Your ID</th>
+                <th colspan="2"></th>
+            </tr>
+
+            <tr ng-repeat="a in data">
+                <td>{{a.ProductID}}</td>
+                <td>{{a.ProductName}}</td>
+                <td>{{a.ProductQuantity}}
+                    <div ng-if="a.ProductQuantity > a.ThresholdQuantity ">
+                        <span class="label label-success">Available</span>
+                    </div>
+                    <div ng-if="a.ProductQuantity <= a.ThresholdQuantity ">
+                        <span class="label label-warning">Almost out of stock</span>
+                    </div>
+                    <div ng-if="a.ProductQuantity < a.ThresholdQuantity ">
+                        <span class="label label-danger">Out of stock</span>
+                    </div>
+                </td>
+                <td><input class="form-control" type="number" name="ProductID" value="{{a.ThresholdQuantity}}" ng-model="a.ThresholdQuantity" required /></td>
+                <td><input class="form-control" type="number" name="ProductID" value="{{a.BatchQuantity}}" ng-model="a.BatchQuantity" required /></td>
+                <td>{{a.SupplierID}}</td>
+                <td><a class="btn btn-default" ng-click="updateInventory(a)">Update</a></td>
+            </tr>
+        </table>
+        </div>
+        <!--<a class="btn btn-primary btn-block" id="UpdateProductBtn" data-target="#UpdateProductModal" data-toggle="modal">Update Products</a>
+    </div>
+    <div class="container">
+        <div class="modal fade " id="UpdateProductModal" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2>Update Product</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form name="ProductForm" class="form-signin">
+                            <label class="sr-only">Product ID</label>
+                            <input class="form-control" type="text" placeholder="ProductID" maxlength="4" name="ProductID" value="{{a.ProductID}}" ng-model="ProductID" required />
+                            <label class="sr-only">ProductName:</label>
+                            <input name="ProductName" class="form-control" type="text" placeholder="ProductName" value="{{ProductName}}" ng-model="ProductName" required />
+                            <label class="sr-only">ProductDescription</label>
+                            <input name="ProductDescription" class="form-control" type="text" placeholder="ProductDescription" ng-model="ProductDescription" required />
+                            <select class="form-control" name="Category" id="ProductCategory" ng-model="ProductCategory" required>
+                                <option>Flowers</option>
+                                <option>Gourmet</option>
+                                <option>Chocolate</option>
+                            </select>
+                            <input name="ProductQuantity" class="form-control" type="text" placeholder="ProductQuantity" value="{{ProductQuantity}}" ng-model="ProductQuantity" required disabled />
+                            <label class="sr-only">ProductDescription</label>
+                            <input name="ProductDescription" class="form-control" type="text" placeholder="SupplierID" value="{{SupplierID}}" ng-model="SupplierID" required />
+                            <label class="sr-only">Product Price</label>
+                            <input name="ProductPrice" class="form-control" type="text" placeholder="ProductPrice" ng-model="ProductPrice" required />
+                            <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="EditProducts()" value="Submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</body>
+</html>

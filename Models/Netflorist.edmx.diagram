@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ab2c4e16655543e7bb220a561024e8a7" Name="Diagram1">
+        <EntityTypeShape EntityType="netfloristModel.Administrator" Width="1.5" PointX="10.125" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="netfloristModel.Customer" Width="1.5" PointX="2.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="netfloristModel.Driver" Width="1.5" PointX="8.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="netfloristModel.Order" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="netfloristModel.Payment" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="netfloristModel.ProductOrder" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="netfloristModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="netfloristModel.FK_Payment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="netfloristModel.FK_ProductOrder_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="netfloristModel.FK_Payment_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="netfloristModel.FK_ProductOrder_Order" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="netfloristModel.Delivery" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="netfloristModel.Product_Images" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="netfloristModel.Image" Width="1.5" PointX="6.375" PointY="10.25" />
+        <EntityTypeShape EntityType="netfloristModel.Product" Width="1.5" PointX="3.375" PointY="9.625" />
+        <EntityTypeShape EntityType="netfloristModel.Supplier" Width="1.5" PointX="0.5" PointY="10.125" />
+        <AssociationConnector Association="netfloristModel.FK_Images_Product" />
+        <AssociationConnector Association="netfloristModel.FK_Product_Supplier" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
